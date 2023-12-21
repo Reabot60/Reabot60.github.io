@@ -1,0 +1,125 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .image {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            margin: 10px;
+            position: relative;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image:hover {
+            transform: scale(1.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            .image {
+                width: 100%;
+                height: 150px;
+            }
+        }
+
+        /* JavaScript for Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .modal-content {
+            max-width: 800px;
+            max-height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Responsive Picture Gallery</title>
+</head>
+<body>
+    <div class="gallery">
+        <!-- Add your image URLs here -->
+        <div class="image" onclick="openModal('image1.jpg')">
+            <img src="image1.jpg" alt="Image 1">
+        </div>
+        <div class="image" onclick="openModal('image2.jpg')">
+            <img src="image2.jpg" alt="Image 2">
+        </div>
+        <!-- Add more images as needed -->
+    </div>
+
+    <!-- JavaScript for Modal -->
+    <div id="myModal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Modal Image">
+        </div>
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('myModal').style.display = 'flex';
+            document.getElementById('modalImage').src = imageSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+```
+
+This code creates a responsive picture gallery with a modal that displays a larger version of the image when clicked. Customize the image URLs, and you can add more images as needed.
